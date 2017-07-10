@@ -145,7 +145,15 @@ Learning rate
 The learning rate is a number between 0 to 1 that exists to control how much your weights are adjusted. Without the learning rate, you risk over adjusting
 your weights and over shooting the optimum answer.
 
+Result
 
+If you run this long enough, you will find that you have a negative x value and a positive y value. You will also find that the x and y are pretty close to each other in terms
+of absolute value. Since the range for both x and y is limited to -255 and 255, it makes sense for x to be negative because the higher the x value the less likely y will be above
+the line. Also, the chance of y being above line increases as x decreases. The negative weight of x will decrease the over all sum proportional to x if x is positive thus decreasing
+the chance the sum is positive. It will also increase the sum proportional to x if x is negative thus increasing the chance that the sum is positive. Remember if the sum is greater than 0
+the percpetron will guess its above the line and if its less than 0 the perceptron will guess its below the line. However, the chances of y being greater than x will still hover about 50/50 over all. 
+That's why x and y will be close in absolute value. The reason why y is slightly less than x is because variances in y greatly affect the correctness of the guess more so than x. Therefore, the machine will trust that 
+input less and put less weight on it. Variances in x have less effect on the guess and so the machine will put more weight on it.
 
 
 */
