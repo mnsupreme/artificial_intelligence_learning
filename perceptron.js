@@ -18,7 +18,7 @@ class Perceptron{
 		this.error = 0;
 		this.expected = 0;
 	}
-
+	//this function puts a point with a y value between 0 and 255 and is most likely above the line y=x
 	positive_train(){
 		console.log("positive_train intital", {x:this.weightx, y:this.weighty, bias:this.weightbias})
 		this.x = Rand(-255,255)
@@ -49,6 +49,7 @@ class Perceptron{
 
 	}
 
+	//this function puts a point with a y value between 0 and -255 and is most likely below the line y=x
 	negative_train(){
 		console.log("negative_train intital", {x:this.weightx, y:this.weighty, bias:this.weightbias})
 		this.x = Rand(-255,255)

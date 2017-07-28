@@ -8,7 +8,9 @@
 # Siraj Raval github username: ||Source|| link to profile: https://github.com/llSourcell
 #
 # Wilson Mar github username: wilsonmar link to profile: https://github.com/wilsonmar
- 
+
+
+#example of batch gradient descent
 import numpy as np
 from numpy import *
 
@@ -25,6 +27,7 @@ def run():
 	print "After {0} iterations b = {1}, m = {2}, error = {3}".format(num_iterations, final_b, final_m, get_error(final_m, final_b, points))
 
 
+
 def gradient_run(points, guess_m, guess_b, num_iterations, learning_rate, overfit_penalizer):
 	current_m =  guess_m
 	current_b = guess_b
@@ -39,7 +42,7 @@ def gradient_step(m_current,b_current,learning_rate,overfit_penalizer, points):
 	x_average = np.average(points[:,0])
 	x_range= np.ptp(points[:,0])
 	for i in range (0, len(points)):
-		x = (points[i, 0]-x_range)/x_average #feature scale (normalize) your inputs
+		x = (points[i, 0]-x_average)/x_range #feature scale (normalize) your inputs
 		y = points[i, 1]
 
 		#assume cost function is 1/(2N)*((y - ((m_current * x) + b_current))^2)
@@ -48,7 +51,7 @@ def gradient_step(m_current,b_current,learning_rate,overfit_penalizer, points):
 		# add overfit_penalizer to prevent overfitting data
 	new_m = m_current - (learning_rate * m_gradient)
 	new_b = b_current - (learning_rate * b_gradient)
-	#learning rate helps to speed up ir slowdown gradient adjustment. If set to high, it will overshoot optimum y and b values
+	#learning rate helps to speed up or slowdown gradient adjustment. If set to high, it will overshoot optimum y and b values
 	return [new_m, new_b]
 
 def get_error(m,b,points):

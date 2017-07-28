@@ -11,6 +11,7 @@
 #
 # Randall Bohn github username: rsbohn link to profile:https://github.com/rsbohn
 
+# This function guesses 0 or 1 based on the three binary inputs.
 import numpy as np
 
 #sigmoid function to normalize data. turns any number to a number between 1 and  0
@@ -32,6 +33,7 @@ expected = np.array([[0],
 			[1],
 			[0]])
 
+#seeding our random number generator (not important)
 np.random.seed(1)
 
 # randomly initialize our weights with mean 0
@@ -55,7 +57,7 @@ for j in xrange(60000):
     if (j% 10000) == 0:
         print "Error:" + str(np.mean(np.abs(output_error)))
         
-    # assumed cost function is 0.5(output_error^2)
+    # assumed cost function is 0.5(output_error^2) so derivative is "output_error * derivative_of_output_error( a.k.a derivative of sigmoid function)"
     # the function below is the derivative of the cost function in relation
     # to hidden_layer_1_values
     # the reason why we plug in output into the sigmoid function instead of
